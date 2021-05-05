@@ -502,12 +502,12 @@ bool P1MeterBase::MatchLine()
 				break;
 			case P1TYPE_USAGECURRENT:
 				temp_usage = (unsigned long)(strtod(value, &validate) * 1000.0F); // Watt
-				if (temp_usage < 17250)
+				if (temp_usage < 3 * m_sql.m_max_kwh_usage)
 					m_power.usagecurrent = temp_usage;
 				break;
 			case P1TYPE_DELIVCURRENT:
 				temp_usage = (unsigned long)(strtod(value, &validate) * 1000.0F); // Watt;
-				if (temp_usage < 17250)
+				if (temp_usage < 3 * m_sql.m_max_kwh_usage)
 					m_power.delivcurrent = temp_usage;
 				break;
 			case P1TYPE_VOLTAGEL1:
